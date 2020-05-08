@@ -80,17 +80,17 @@ public class ItemHistory extends HttpServlet {
 
 		DBConnection connection = DBConnectionFactory.getConnection();
 		try {
-			List<String> itemIds = new ArrayList<>();
+//			List<String> itemIds = new ArrayList<>();
 			JSONObject input = RpcHelper.readJSONObject(request);
 			String userId = input.getString("user_id");
 			JSONArray array = input.getJSONArray("favorite");
 			String itemId = array.getString(0);
 //			for mysql
-//			connection.setFavoriteItems(userId, itemId);
+			connection.setFavoriteItems(userId, itemId);
 			
 //			for mongodb
-			itemIds.add(itemId);
-			connection.setFavoriteItems(userId, itemIds);
+//			itemIds.add(itemId);
+//			connection.setFavoriteItems(userId, itemIds);
 			RpcHelper.writeJsonObject(response, new JSONObject().put("result", "SUCCESS"));
 	  		
 		} catch (Exception e) {
@@ -114,17 +114,17 @@ public class ItemHistory extends HttpServlet {
 
 		DBConnection connection = DBConnectionFactory.getConnection();
 		try {
-			List<String> itemIds = new ArrayList<>();
+//			List<String> itemIds = new ArrayList<>();
 			JSONObject input = RpcHelper.readJSONObject(request);
 			String userId = input.getString("user_id");
 			JSONArray array = input.getJSONArray("favorite");
 			String itemId = array.getString(0);
 //			for mysql
-//			connection.unsetFavoriteItems(userId, itemId);
+			connection.unsetFavoriteItems(userId, itemId);
 			
 //			for mongodb
-			itemIds.add(itemId);
-			connection.unsetFavoriteItems(userId, itemIds);
+//			itemIds.add(itemId);
+//			connection.unsetFavoriteItems(userId, itemIds);
 			RpcHelper.writeJsonObject(response, new JSONObject().put("result", "SUCCESS"));
 	  		 
 		} catch (Exception e) {

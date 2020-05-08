@@ -17,8 +17,8 @@ public interface DBConnection {
 	 * @param userId
 	 * @param itemIds
 	 */
-//	public void setFavoriteItems(String userId, String itemId);
-	public void setFavoriteItems(String userId, List<String> itemIds);
+	public void setFavoriteItems(String userId, String itemId);
+//	public void setFavoriteItems(String userId, List<String> itemIds);
 
 	/**
 	 * Delete the favorite items for a user.
@@ -26,8 +26,8 @@ public interface DBConnection {
 	 * @param userId
 	 * @param itemIds
 	 */
-//	public void unsetFavoriteItems(String userId, String itemId);
-	public void unsetFavoriteItems(String userId, List<String> itemIds);
+	public void unsetFavoriteItems(String userId, String itemId);
+//	public void unsetFavoriteItems(String userId, List<String> itemIds);
 	/**
 	 * Get the favorite item id for a user.
 	 * 
