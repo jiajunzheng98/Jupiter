@@ -1,6 +1,7 @@
 # Java Web Service Development – Event Search and Ticket Recommendation
 
 * Structure:
+
 ![](images/Jupiter_final.PNG)
 
 * Backend:
