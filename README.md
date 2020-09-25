@@ -1,15 +1,43 @@
-# Java Web Service Development – Event Search and Ticket Recommendation
+# Take it - Event Search and Ticket Recommendation
 
-* Structure:
+An interactive web application for users to search events by their geolocations and get recommendations based on their favorites.(Events are fetched from TicketMaster API)
 
-![](images/Jupiter_final.PNG)
+## Tech Stack
+* Front end: HTML/CSS/JavaScript
+* Back end: JAVA
+* Database: MYSQL MongoDB
+* Java servlet: Apache Tomcat
+* Test: Apache JMeter
 
-* Backend:
-  * Created Java servlets with RESTful APIs to handle HTTP requests and responses
-  * Built relational and NoSQL databases (MySQL, MongoDB) to capture real business data from TicketMaster API
-  * Designed algorithms (e.g., content-based recommendation) to improve business recommendation
-  * Deployed server to Amazon EC2 to handle 150 queries per second tested by Apache JMeter
+## Structure
+![alt text](/images/ticket1.png)
 
-* Frontend:
-  * Developed an interactive web page for users to search events and purchase tickets (HTML, CSS and JavaScript, AJAX)
-  * Improved personalized business recommendation based on search history and favorite records
+## Logic layer
+![alt text](/images/ticket2.png)
+
+## RPC
+Java servelet handles:
+* login
+* logout
+* register
+* search items
+* recommend items
+* set/unset favorite items
+
+## Recommendation Algorithm(content-based)
+In this project, I recommend events based on categories that the user has favorited. By knowing the category of the item the user favorited, I recommend some events belong to this category nearby this user. 
+
+Concrete steps are as follow:
+* Fetch all ids of these events this user has visited.
+* Given all these events, fetch the categories of these events. 
+* Given these categories, find what are the events that belong to them. 
+* Filter events that this user has visited. 
+* Sort the recommendation list on ascending order of distance between recommended events's locations and user's location.
+
+
+
+## Database
+Used MySQL to store real business data (price, location, category, etc.) and migrated to NoSQL database (MongoDB) for better scalability
+
+### MySQL database schema:
+![alt text](/images/ticket3.png)
